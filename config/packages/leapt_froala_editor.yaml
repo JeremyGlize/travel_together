@@ -1,0 +1,22 @@
+twig:
+    form_themes:
+        - '@LeaptFroalaEditor/Form/froala_widget.html.twig'
+
+leapt_froala_editor:
+    language: 'fr'
+    toolbarInline: false
+    tableColors: [ '#FFFFFF', '#FF0000' ]
+    saveParams: { "id": "myEditorField" }
+    heightMax: 800
+    attribution: false
+
+    # Disable CodeMirror inclusion.
+    includeCodeMirror: false
+    # Disable Font Awesome inclusion.
+    includeFontAwesome: false
+    # Disable all bundle JavaScript inclusion (not concerning CodeMirror).
+    # Usage: if you are using Grunt or Webpack or other, and you want to include yourself all scripts.
+    includeJS: false
+    # Disable all bundle CSS inclusion (not concerning Font Awesome nor CodeMirror).
+    # Usage: if you are using Grunt or Webpack or other, and you want to include yourself all stylesheets.
+    includeCSS: false
