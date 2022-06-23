@@ -13,13 +13,30 @@
     </section>
     <section class="last-article">
         <h2>Dernier articles</h2>
-        <div class="articles-container-home">
-            <div class="articles-card-home">
-                <img src="" alt="">
-                <h3>Titre de l'article</h3>
-                <p></p>
-                <button>Lire plus</button>
-            </div>
+{#        <div class="articles-container-home">#}
+{#            <div class="articles-card-home">#}
+{#                <img src="" alt="">#}
+{#                <h3>Titre de l'article</h3>#}
+{#                <p></p>#}
+{#                <button>Lire plus</button>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="articles-container-listing">
+            {% for article in articles|sort((a,b)=>b.createdAt > a.createdAt)|slice(0, 3) %}
+                <div class="articles-card-listing">
+                    <div>
+                        <h3>{{ article.title|raw }}</h3>
+                    </div>
+                    <div>
+                        <p>{{ article.content|u.truncate(150, '...', false)|raw }}</p>
+                        <p>{{ article.content|striptags|slice(0, 180)|raw }}</p>
+                        <span class="visibility">{{ article.createdAt|date('d-m-Y') }}</span>
+                        <button>
+                            <a href="{{ path('article_detail', {id: article.id}) }}">Lire plus</a>
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </section>
     <section class="world-map">

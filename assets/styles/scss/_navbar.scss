@@ -6,23 +6,20 @@ $link-hover-color: #2581DC;
 .navigation {
   height: 70px;
   background: $white;
+  // Container with no padding for navbar
+  .nav-container {
+    max-width: 100%;
+    margin: 0 auto;
+    // Logo and branding
+    .logo {
+      position: absolute;
+      padding-left: 20px;
+      line-height: 70px;
+      text-transform: uppercase;
+      @include font(GG_S, 30);
+    }
+  }
 }
-
-// Logo and branding
-.logo {
-  position: absolute;
-  padding-left: 20px;
-  line-height: 70px;
-  text-transform: uppercase;
-  @include font(GG_S, 30);
-}
-
-// Container with no padding for navbar
-.nav-container {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
 // Navigation
 nav {
   float: right;
@@ -38,7 +35,7 @@ nav {
       a,
       a:visited {
         display: block;
-        padding: 0 10px;
+        padding: 0 5px;
         @include font(GG_S, 12);
         text-transform: uppercase;
         line-height: 70px;

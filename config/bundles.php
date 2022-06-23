@@ -14,6 +14,5 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
-    FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
-    FM\ElfinderBundle\FMElfinderBundle::class => ['all' => true],
+    Leapt\FroalaEditorBundle\LeaptFroalaEditorBundle::class => ['all' => true],
 ];

@@ -35,7 +35,8 @@ class ArticleController extends AbstractController
             $user = $this->getUser();
             $articleToSave = $form
                 ->getData()
-                ->setUser($user);
+                ->setUser($user)
+                ->setCreatedAt(new \DateTime());
             $entityManager->persist($articleToSave);
             $entityManager->flush();
             $this->addFlash('success', 'Votre article à été créé avec succès ! ');

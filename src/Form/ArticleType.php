@@ -2,8 +2,9 @@
 
 namespace App\Form;
 
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Leapt\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,20 +25,18 @@ class ArticleType extends AbstractType
                     'autocomplete' => 'off'],
                 'label' => 'Titre'
             ])
-            ->add('content', CKEditorType::class, [
-                'attr' => ['class' => 'content-article-form'],
+            ->add('content', FroalaEditorType::class, [
                 'label' => ' '
             ])
             ->add('user', HiddenType::class)
             ->add('save', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn btn-success'
-                ],
                 'label' => 'Enregistrer'
-
-            ]);
-
-
+            ])
+            ->add('createdAt', DateType::class, [
+            'attr' => [
+                'class' => 'visibility'
+            ],
+            'label' => false
+        ]);
     }
-
 }

@@ -1,4 +1,5 @@
 .container-form {
+  margin-top: 10%;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -16,25 +17,25 @@
 .signin-form {
   background-color: white;
   padding: 5px 0;
-  border-bottom: solid;
+  border-bottom: 1px solid;
   @include font(GG_R, 16);
 }
 
 #registration_form_plainPassword_first, #registration_form_plainPassword_second {
   background-color: white;
   padding: 5px 0;
-  border-bottom: solid;
+  border-bottom: 1px solid;
   @include font(GG_R, 16);
 }
 
-.label-signin {
-  visibility: hidden;
-}
+//.label-signin {
+//  visibility: hidden;
+//}
 
 button {
   padding: 10px;
   margin: 20px 0;
-  border: solid;
+  border: 2px solid;
   cursor: pointer;
   @include font(GG_R, 16);
 }

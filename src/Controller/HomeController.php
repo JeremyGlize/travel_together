@@ -2,15 +2,20 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class HomeController extends AbstractController
 {
     #[Route ("/", name: "home")]
-    public function home()
+    public function home(ArticleRepository $articleRepository)
     {
-        return $this->render('home.html.twig');
+        $articles = $articleRepository->findAll();
+        return $this->render('home.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
 //    #[Route ("/Politique de confidentialités", name: "Politique")]

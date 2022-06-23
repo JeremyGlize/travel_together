@@ -11,9 +11,9 @@
   100% { left: -400%; }
 }
 
-#slider {
+.carousel {
   overflow: hidden;
-  margin: 0 20px 20px;
+  margin: 20px;
 }
 #slider figure img {
   width: 20%;
@@ -33,6 +33,7 @@
   h2 {
     text-align: center;
     text-transform: uppercase;
+    padding: 20px 0;
     @include font(GG_S, 28);
   }
 }
@@ -49,7 +50,7 @@
     padding: 10px;
     margin: 20px;
     height: auto;
-    border: solid;
+    border: 2px solid;
   }
 }
 
@@ -57,6 +58,7 @@
 
 .world-container {
   h2 {
+    padding: 20px 0;
     text-align: center;
     text-transform: uppercase;
     @include font(GG_S, 28);

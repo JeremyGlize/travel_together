@@ -2,21 +2,19 @@
 
 {% block body %}
     <section class="new-article-form">
+        <div class="container-article-form">
+            <h1>Raconte nous ton plus beau voyage :) !</h1>
             {{ form_start(articleForm, {'attr': {'class': 'articles-container-new'}}) }}
-            <div>
-                <h1>Raconte nous ton plus beau voyage :) !</h1>
-            </div>
             <div>
                 {{ form_row(articleForm.title, {
                     'label_attr': {'class': 'article-title-form'}
                 }) }}
             </div>
-            <div>
-                {{ form_row(articleForm.content, {
-                    'label_attr': {'class': 'article-content-form'}
-                }) }}
+            <div class="fr-view">
+                {{ form_row(articleForm.content) }}
             </div>
             {{ form_end(articleForm) }}
+        </div>
     </section>
 
 {% endblock body %}
