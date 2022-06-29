@@ -1,32 +1,39 @@
 // ******** ARTICLE LISTING ******** //
 
 .articles-container-listing {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: center;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  flex-wrap:wrap;
   .articles-card-listing {
-    //width: 33%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex: 1 0 30%;
-    min-width: 200px;
-    max-width: 400px;
-    padding: 10px;
-    margin: 20px;
-    height: 500px;
-    border: 2px solid;
+    max-width:370px;
+    margin:15px;
+    border:2px solid;
+    text-align:center;
     h3 {
+      height: 60px;
       margin: 20px 0;
       @include font(GG_S, 22);
+    }
+    .articles-card-details {
+      position:relative;
+      text-align:center;
+      p:nth-child(3){
+        height: 60px;
+        padding:10px 0;
+        line-height:20px;
+        @include font(GG_R, 14);
+      }
+      img{
+        max-height:250px;
+        width:100%!important;
+      }
     }
   }
 }
 
-//#isPasted {
-//  display: none;
+//.articles-card-button {
+//  background-color: grey;
 //}
 
 // ******** ARTICLE DETAILS ******** //

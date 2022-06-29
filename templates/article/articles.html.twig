@@ -9,13 +9,16 @@
         <div class="articles-container-listing">
             {% for article in articles %}
             <div class="articles-card-listing">
-                <div>
+                <div class="articles-card-title">
                     <h3>{{ article.title|raw }}</h3>
                 </div>
-                <div>
-                    <p>{{ article.content|u.truncate(150, '...', false)|raw }}</p>
-                    <p>{{ article.content|striptags|slice(0, 180)|raw }}</p>
-                    <button>
+                <div class="articles-card-details">
+{#                    <p>{{ article.content|u.truncate(150, '...', false)|raw }}</p>#}
+{#                    <p>{{ article.content|striptags|slice(0, 180)|raw }}</p>#}
+                    <p>{{ article.content|u.truncate(210, '...', false)|raw }}</p>
+                </div>
+                <div class="articles-card-button">
+                    <button class="read-more">
                         <a href="{{ path('article_detail', {id: article.id}) }}">Lire plus</a>
                     </button>
                 </div>
