@@ -43,6 +43,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Article::class)]
     private $article;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
+    private $comment;
+
     public function __construct()
     {
         $this->article = new ArrayCollection();
@@ -157,7 +160,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->pseudo;
     }
 
-
     public function setPseudo(?string $pseudo): self
     {
         $this->pseudo = $pseudo;
@@ -211,5 +213,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment): void
+    {
+        $this->comment = $comment;
+    }
 }

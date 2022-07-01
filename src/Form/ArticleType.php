@@ -31,12 +31,6 @@ class ArticleType extends AbstractType
             ->add('user', HiddenType::class)
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer'
-            ])
-            ->add('createdAt', DateType::class, [
-            'attr' => [
-                'class' => 'visibility'
-            ],
-            'label' => false
-        ]);
+            ]);
     }
 }

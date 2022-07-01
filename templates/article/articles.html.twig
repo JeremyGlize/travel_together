@@ -16,6 +16,8 @@
 {#                    <p>{{ article.content|u.truncate(150, '...', false)|raw }}</p>#}
 {#                    <p>{{ article.content|striptags|slice(0, 180)|raw }}</p>#}
                     <p>{{ article.content|u.truncate(210, '...', false)|raw }}</p>
+{#                    <p>{{ article.createdAt|date }}</p>#}
+                    <p>Commentaires : {{ article.comments|length }}</p>
                 </div>
                 <div class="articles-card-button">
                     <button class="read-more">

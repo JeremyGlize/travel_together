@@ -6,8 +6,27 @@
         <h3>
             {{ article.title|raw }}
         </h3>
-
         {{ article.content|raw }}
+    </div>
+</section>
+<section class="comment-article">
+    <h3>Laisser un commentaire !</h3>
+    <div class="container-comment-form">
+        <div class="comment-form">
+            {{ form_start(form) }}
+            <div class="comment-content">
+                {{ form_row(form.commentContent) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class="container-comment">
+        <div class="comments">
+            {% for comment in article.comments %}
+                <p>Commentaire écrit par {{ comment.pseudo }} le {{ comment.createdAt|date }}</p>
+                <p>{{ comment.commentContent }}</p>
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock %}
