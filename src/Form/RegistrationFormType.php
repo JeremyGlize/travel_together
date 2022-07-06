@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -60,11 +61,22 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Mot de passe torp court ! {{ limit }}',
+                        'minMessage' => 'Mot de passe trop court ! {{ limit }}',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
+            ])
+
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Editeur' => 'ROLE_EDITOR',
+                ],
+                'expanded' => true,
+                'multiple' => true,
+                'label' => 'Rôles <i class="fa-solid fa-circle-info"></i>',
+                'label_html' => true,
             ])
 
             ->add('agreeTerms', CheckboxType::class, [

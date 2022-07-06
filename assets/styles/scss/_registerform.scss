@@ -7,7 +7,7 @@
   justify-content: center;
   .flex-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 20px 0 5px 0;
     @include font(GG_R, 18);
   }
@@ -27,9 +27,25 @@
   @include font(GG_R, 16);
 }
 
-//.label-signin {
-//  visibility: hidden;
-//}
+.choice-type {
+  @include font(GG_R, 16);
+}
+
+.fa-solid {
+  margin: 3px;
+}
+
+#registration_form_roles_0 {
+   margin-left: 0px;
+}
+
+#registration_form_roles_1 {
+  margin-left: 12px;
+}
+
+#registration_form_agreeTerms {
+  margin-left: 0px;
+}
 
 button {
   padding: 10px;

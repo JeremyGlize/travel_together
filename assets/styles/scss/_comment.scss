@@ -1,5 +1,32 @@
+//********* COMMENT FORM **********
+
 h3 {
   text-align: center;
-  margin: 20px 0;
+  margin: 30px 0;
   @include font(GG_S, 22)
+}
+
+.comment-content {
+  margin: 20px;
+  border: 2px solid;
+}
+
+.comment-sub {
+  display: flex;
+  justify-content: center;
+}
+
+//********* COMMENT FORM **********
+
+.comments {
+  border: 2px solid;
+  margin: 20px;
+  .comment-date-pseudo {
+    margin: 10px;
+    @include font(GG_S, 16);
+  }
+  .comment-content-wright {
+    margin: 8px 20px;
+    @include font(GG_R, 14);
+  }
 }

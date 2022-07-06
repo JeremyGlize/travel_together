@@ -4,47 +4,66 @@
 
 {% block body %}
 <section class="register-form">
-        <div class="container-form">
-                {{ form_start(registrationForm) }}
-                <div>
-                        {{ form_row(registrationForm.firstName, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-                <div>
-                        {{ form_row(registrationForm.lastName, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-                <div>
-                        {{ form_row(registrationForm.pseudo, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-                <div>
-                        {{ form_row(registrationForm.email, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-                <div>
-                        {{ form_row(registrationForm.plainPassword.first, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-                <div>
-                        {{ form_row(registrationForm.plainPassword.second, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-                <div>
-                        {{ form_row(registrationForm.agreeTerms, {
-                                'label_attr': {'class': 'flex-form'}
-                        }) }}
-                </div>
-
-                <button type="submit" class="">S'enregistrer</button>
-                {{ form_end(registrationForm) }}
+    <div class="container-form">
+        {{ form_start(registrationForm) }}
+        <div>
+            {{ form_row(registrationForm.firstName, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
         </div>
+        <div>
+            {{ form_row(registrationForm.lastName, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
+        </div>
+        <div>
+            {{ form_row(registrationForm.pseudo, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
+        </div>
+        <div>
+            {{ form_row(registrationForm.email, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
+        </div>
+        <div>
+            {{ form_row(registrationForm.plainPassword.first, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
+        </div>
+        <div>
+            {{ form_row(registrationForm.plainPassword.second, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
+        </div>
+        <div>
+            {{ form_row(registrationForm.roles, {
+                    'label_attr': {'class': 'flex-form'},
+                    'attr': {'class': 'choice-type'}
+            }) }}
+        </div>
+        <div>
+            {{ form_row(registrationForm.agreeTerms, {
+                    'label_attr': {'class': 'flex-form'}
+            }) }}
+        </div>
+
+        <button type="submit" class="">S'enregistrer</button>
+        {{ form_end(registrationForm) }}
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="pop-up">
+                    <div class="pop-body">
+                        <button class="btn-close">X</button>
+                        <h3>Informations</h3>
+                        <p>Utilisateur: Vous pouvez lire les articles et ajouter des commentaires.</p>
+                        <p>Editeur: Vous pouvez lire, ecrire des articles et ajouter des commentaires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

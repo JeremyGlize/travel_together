@@ -11,7 +11,7 @@
                 <li><a href="{{ path('article_listing') }}">Articles</a></li>
                 <li><a href="{{ path('destination') }}">Destinations</a></li>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <li><a href="{{ path('user_listing') }}">Utilisateurs</a></li>
+                    <li><a href="{{ path('admin_users') }}">Utilisateurs</a></li>
                 {% endif %}
                 {% if app.user %}
                     <li><a  href="{{ path('app_logout') }}">Se déconnecter</a></li>

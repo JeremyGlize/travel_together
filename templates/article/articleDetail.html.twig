@@ -10,6 +10,7 @@
     </div>
 </section>
 <section class="comment-article">
+    {% if app.user %}
     <h3>Laisser un commentaire !</h3>
     <div class="container-comment-form">
         <div class="comment-form">
@@ -17,14 +18,22 @@
             <div class="comment-content">
                 {{ form_row(form.commentContent) }}
             </div>
+            <div class="comment-sub">
+                {{ form_row(form.envoyer) }}
+            </div>
             {{ form_end(form) }}
         </div>
     </div>
+    {% endif %}
     <div class="container-comment">
         <div class="comments">
             {% for comment in article.comments %}
-                <p>Commentaire écrit par {{ comment.pseudo }} le {{ comment.createdAt|date }}</p>
-                <p>{{ comment.commentContent }}</p>
+                <div class="comment-date-pseudo">
+                    <p>{{ comment.pseudo }} le {{ comment.createdAt|date("d/m/Y") }}</p>
+                </div>
+                <div class="comment-content-wright">
+                    <p>{{ comment.commentContent }}</p>
+                </div>
             {% endfor %}
         </div>
     </div>

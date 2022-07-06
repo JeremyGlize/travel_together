@@ -2,7 +2,6 @@ footer{
   background: $white;
   height: auto;
   width: 100%;
-  padding-top: 60px;
   color: $black;
     .footer-content{
       @include flex(center, center, column);
