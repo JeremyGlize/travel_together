@@ -13,14 +13,6 @@
     </section>
     <section class="last-article">
         <h2>Dernier articles</h2>
-{#        <div class="articles-container-home">#}
-{#            <div class="articles-card-home">#}
-{#                <img src="" alt="">#}
-{#                <h3>Titre de l'article</h3>#}
-{#                <p></p>#}
-{#                <button>Lire plus</button>#}
-{#            </div>#}
-{#        </div>#}
         <div class="articles-container-listing">
             {% for article in articles|sort((a,b)=>b.createdAt > a.createdAt)|slice(0, 3) %}
                 <div class="articles-card-listing">
