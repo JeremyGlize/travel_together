@@ -1,0 +1,13 @@
+.pagination-container {
+  margin: 25px 0;
+}
+
+.pagination {
+  text-align: center;
+  @include font(GG_R, 18);
+   span {
+    margin: 0 5px;
+    border: solid 1px black;
+    padding: 10px 20px;
+  }
+}

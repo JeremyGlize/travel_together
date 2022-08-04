@@ -9,6 +9,7 @@ use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'listing')]
-    public function articles(ArticleRepository $articleRepository, CommentRepository $commentRepository): \Symfony\Component\HttpFoundation\Response
+    public function articles(ArticleRepository $articleRepository, CommentRepository $commentRepository, Request $request, PaginatorInterface $paginator): \Symfony\Component\HttpFoundation\Response
     {
         $articles = $articleRepository->findAll();
         $comments = $commentRepository->findBy([
@@ -26,6 +27,12 @@ class ArticleController extends AbstractController
             'actif' => 1
         ],
             ['createdAt' => 'desc']);
+
+        $articles = $paginator->paginate(
+            $articles, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            2 // Nombre de résultats par page
+        );
 
         return $this->render('article/articles.html.twig', compact('articles', 'comments'));
     }

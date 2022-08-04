@@ -29,7 +29,7 @@
         <div class="comments">
             {% for comment in article.comments %}
                 <div class="comment-date-pseudo">
-                    <p>{{ comment.pseudo }} le {{ comment.createdAt|date("d/m/Y") }}</p>
+                    <p>{{ comment.pseudo }} le {{ comment.createdAt|date("d/m/Y à H:i") }}</p>
                 </div>
                 <div class="comment-content-wright">
                     <p>{{ comment.commentContent }}</p>
