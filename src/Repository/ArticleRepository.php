@@ -6,7 +6,6 @@ use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -23,16 +22,6 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
-
-//    public function findForPagination(): Query
-//    {
-//        $qb = $this->createQueryBuilder('a')
-//            ->orderBy('a.createdAt', 'DESC');
-//
-//        return $qb->getQuery();
-//
-//    }
-
 
     /**
      * @throws ORMException

@@ -3,9 +3,16 @@
 }
 
 .pagination {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @include font(GG_R, 18);
-   span {
+  .current {
+    margin: 0 5px;
+    border: solid 1px black;
+    padding: 10px 20px;
+  }
+   span a {
     margin: 0 5px;
     border: solid 1px black;
     padding: 10px 20px;

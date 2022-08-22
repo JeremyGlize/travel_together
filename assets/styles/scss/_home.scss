@@ -13,7 +13,7 @@
 
 .carousel {
   overflow: hidden;
-  margin: 20px;
+  margin: 15px;
 }
 #slider figure img {
   width: 20%;
@@ -65,6 +65,12 @@
   }
   img {
     margin: 20px 0;
-    padding: 0 20px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .world-container h2 {
+    font: 22px GG_S;
   }
 }

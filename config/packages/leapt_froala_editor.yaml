@@ -9,6 +9,9 @@ leapt_froala_editor:
     saveParams: { "id": "myEditorField" }
     heightMax: 800
     attribution: false
+    saveURL: ''
+    saveInterval: 2500
+    saveParam: "content"
 
     # Disable CodeMirror inclusion.
     includeCodeMirror: false

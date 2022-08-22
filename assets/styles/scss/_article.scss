@@ -73,7 +73,7 @@
 }
 
 .button-article {
-  margin-left: 20px;
+  margin: auto 15px;
 }
 
 .fr-view {
@@ -85,4 +85,20 @@
 
 .visibility {
   display: none;
+}
+
+//***** RESPONSIVE *****//
+
+@media (max-width: 425px) {
+  .last-article h2 {
+    font: 22px GG_S;
+  }
+  .articles-container-listing {
+    .articles-card-listing h3 {
+      font: 18px GG_S;
+    }
+  }
+  .articles-container-details h3 {
+    font: 18px GG_S;
+  }
 }
