@@ -1,0 +1,19 @@
+<div class="articles-card-listing">
+    <div class="articles-card-title">
+        <h3>{{ article.title|raw }}</h3>
+    </div>
+    <div class="intro_image">
+        <img src="{{ asset('build//images/false-img.jpg') }}" alt="Image non trouvé">
+    </div>
+    <div class="articles-card-details">
+        {{ article.content|u.truncate(210, '...', false)|raw }}
+        <div class="com">
+            <i class="fa-solid fa-message"></i> {{ article.comments|length }}
+        </div>
+        <div class="articles-card-button">
+            <button class="read-more">
+                <a href="{{ path('article_detail', {id: article.id}) }}">Lire plus</a>
+            </button>
+        </div>
+    </div>
+</div>

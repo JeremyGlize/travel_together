@@ -1,0 +1,29 @@
+<div class="title">
+    <h1>Gestionnaire articles</h1>
+</div>
+<div class="container-dash">
+    <table class="dash-table">
+        <thead>
+            <tr>
+                <th>Titre de l'article</th>
+                <th>Auteur</th>
+                <th>Date de création</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.title }}</td>
+                <td>{{ article.user.pseudo }}</td>
+                <td>{{ article.createdat|date('d-m-Y')}}</td>
+                <td class="">
+                    <a href="{{ path('article_delete', {id: article.id}) }}">
+                        <i class="fa fa-trash text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

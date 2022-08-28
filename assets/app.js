@@ -10,6 +10,7 @@
 import './styles/app.scss';
 import './styles/js/navbar.js';
 import './styles/js/info_popup.js';
+import './styles/js/intro_image.js'
 
 // start the Stimulus application
 import './bootstrap';

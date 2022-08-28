@@ -1,5 +1,3 @@
-// Navigation Variables
-//$breakpoint: 799px;
 $link-hover-color: #2581DC;
 
 // Outer navigation wrapper
@@ -52,6 +50,10 @@ nav {
       }
     }
   }
+}
+
+.nav-list {
+  text-align: center;
 }
 
 /* Mobile navigation */
@@ -109,13 +111,13 @@ nav {
 }
 //******* BURGER *******//
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 868px) {
   .nav-list {
     display: block !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 867px) {
   // Hamburger nav visible on mobile only
   .nav-mobile {
     display: block;

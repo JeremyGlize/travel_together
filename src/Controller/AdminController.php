@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Form\UserType;
+use App\Repository\CommentRepository;
+use App\Repository\ArticleRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,23 +12,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin', name: 'admin_')]
+
 class AdminController extends AbstractController
 {
-    #[Route('/', name: 'accueil')]
-    public function index(): Response
-    {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
-    }
-
-    #[Route('/users', name: 'users')]
-    public function userListing(UserRepository $userRepository): Response
+    #[Route('admin/dashboard', name: 'dashboard')]
+    public function userListing(UserRepository $userRepository, ArticleRepository $articleRepository, CommentRepository $commentRepository): Response
     {
         $users = $userRepository->findAll();
-        return $this->render('admin/users.html.twig', [
+        $articles = $articleRepository->findAll();
+        $comments = $commentRepository->findAll();
+        return $this->render('admin/dashboard.html.twig', [
             'users' => $users,
+            'articles' => $articles,
+            'comments' => $comments,
             'controller_name' => 'AdminController',
         ]);
     }
@@ -36,7 +34,7 @@ class AdminController extends AbstractController
     {
         $user = $userRepository->findOneBy(['id' => $id]);
         if (!$user) {
-            return $this->redirectToRoute('admin_users');
+            return $this->redirectToRoute('dashboard');
         }
         $form = $this->createForm(UserType::class, $user);
 
@@ -47,7 +45,7 @@ class AdminController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('message', 'Utilisateur modifié avec succès');
-            return $this->redirectToRoute('admin_users');
+            return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('admin/userEdit.html.twig', [
@@ -61,11 +59,34 @@ class AdminController extends AbstractController
     {
         $user = $userRepository->findOneBy(['id' => $id]);
         if (!$user) {
-            return $this->redirectToRoute('admin_users');
+            return $this->redirectToRoute('dashboard');
         }
         $entityManager->remove($user);
         $entityManager->flush();
-        return $this->redirectToRoute('admin_users');
+        return $this->redirectToRoute('dashboard');
     }
 
+    #[Route('/articles/{id}/delete', name: 'article_delete')]
+    public function articleDelete(ArticleRepository $articleRepository, EntityManagerInterface $entityManager, $id): \Symfony\Component\HttpFoundation\RedirectResponse
+    {
+        $article = $articleRepository->findOneBy(['id' => $id]);
+        if (!$article) {
+            return $this->redirectToRoute('dashboard');
+        }
+        $entityManager->remove($article);
+        $entityManager->flush();
+        return $this->redirectToRoute('dashboard');
+    }
+
+    #[Route('/comments/{id}/delete', name: 'comment_delete')]
+    public function commentDelete(CommentRepository $commentRepository, EntityManagerInterface $entityManager, $id): \Symfony\Component\HttpFoundation\RedirectResponse
+    {
+        $comment = $commentRepository->findOneBy(['id' => $id]);
+        if (!$comment) {
+            return $this->redirectToRoute('dashboard');
+        }
+        $entityManager->remove($comment);
+        $entityManager->flush();
+        return $this->redirectToRoute('dashboard');
+    }
 }

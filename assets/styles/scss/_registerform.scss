@@ -1,19 +1,29 @@
+//.title-registration {
+//  text-align: center;
+//  margin: 5% auto;
+//  @include font(GG_S, 32);
+//}
+
 .container-form {
-  margin-top: 10%;
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5% auto;
   display: flex;
   justify-content: center;
   .flex-form {
     display: flex;
     flex-direction: row;
     padding: 20px 0 5px 0;
-    @include font(GG_R, 18);
+    @include font(GG_R, 22);
   }
 }
 
+.form-content {
+  width: 90%;
+  max-width: 900px;
+}
+
 .signin-form {
+  width: 100%;
   background-color: white;
   padding: 5px 0;
   border-bottom: 1px solid;
@@ -21,6 +31,7 @@
 }
 
 #registration_form_plainPassword_first, #registration_form_plainPassword_second {
+  width: 100%;
   background-color: white;
   padding: 5px 0;
   border-bottom: 1px solid;
@@ -53,4 +64,21 @@ button {
   border: 2px solid;
   cursor: pointer;
   @include font(GG_R, 16);
+}
+
+.checkbox-cgu {
+  display: flex;
+  margin-top: 15px;
+}
+
+.cgu {
+  @include font(GG_R, 16);
+}
+
+@media (max-width: 425px) {
+  .container-form {
+    .flex-form {
+      @include font(GG_R, 18);
+    }
+  }
 }

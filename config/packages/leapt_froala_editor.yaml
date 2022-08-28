@@ -12,6 +12,7 @@ leapt_froala_editor:
     saveURL: ''
     saveInterval: 2500
     saveParam: "content"
+    pluginsEnabled: [ "image" ]
 
     # Disable CodeMirror inclusion.
     includeCodeMirror: false

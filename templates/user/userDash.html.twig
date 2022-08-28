@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section class="edit-user-form">
-    <h1>Modifier le profil</h1>
+    <section class="edit-user-form">
+        <div class="title">
+            <h1>Modifier mon compte</h1>
+        </div>
         <div class="container-form">
             {{ form_start(form) }}
             <div>
@@ -16,30 +18,20 @@
                 }) }}
             </div>
             <div>
-                {{ form_row(form.email, {
-                    'label_attr': {'class': 'flex-form'}
-                }) }}
-            </div>
-            <div>
                 {{ form_row(form.pseudo, {
                     'label_attr': {'class': 'flex-form'}
                 }) }}
             </div>
             <div>
-                {{ form_row(form.roles, {
+                {{ form_row(form.email, {
                     'label_attr': {'class': 'flex-form'}
                 }) }}
             </div>
             <div>
                 {{ form_row(form.save) }}
             </div>
-            <div>
-                <button><a href="{{ path('dashboard') }}">Retour</a></button>
-            </div>
             {{ form_end(form) }}
         </div>
-</section>
+    </section>
 
 {% endblock %}
-
-

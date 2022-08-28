@@ -4,8 +4,11 @@
 
 {% block body %}
 <section class="register-form">
+    <div class="title">
+        <h1>Inscription</h1>
+    </div>
     <div class="container-form">
-        {{ form_start(registrationForm) }}
+        {{ form_start(registrationForm, {'attr': {'class': 'form-content'}}) }}
         <div>
             {{ form_row(registrationForm.firstName, {
                     'label_attr': {'class': 'flex-form'}
@@ -42,13 +45,16 @@
                     'attr': {'class': 'choice-type'}
             }) }}
         </div>
-        <div>
+        <div class="checkbox-cgu" >
             {{ form_row(registrationForm.agreeTerms, {
                     'label_attr': {'class': 'flex-form'}
             }) }}
+            <label class="cgu" for=""><a href="/CGU/Politique_de_confidentialité.pdf" target="_blank">Accepter les conditions générales</a></label>
+        </div>
+        <div class="center-button-log-reg">
+            <button type="submit" class="">S'inscrire</button>
         </div>
 
-        <button type="submit" class="">S'enregistrer</button>
         {{ form_end(registrationForm) }}
 
         <div class="wrapper">

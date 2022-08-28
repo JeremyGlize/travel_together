@@ -9,13 +9,12 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class RegistrationFormType extends AbstractType
 {
@@ -23,34 +22,81 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, [
-                'attr' => ['class' => 'signin-form'],
+                'attr' => [
+                    'class' => 'signin-form'
+                ],
+                'required' => false,
+                'trim' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez renseigner un prénom !',
+                    ]),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Le prénom doit contenir au moins {{ limit }} lettres'
+                    ])
+                ],
                 'label' => 'Prénom'
             ])
 
             ->add('lastName', TextType::class, [
-                'attr' => [ 'class' => 'signin-form'],
+                'attr' => [
+                    'class' => 'signin-form'
+                ],
+                'required' => false,
+                'trim' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez renseigner un nom !',
+                    ]),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Le nom doit contenir au moins {{ limit }} lettres'
+                    ])
+                ],
                 'label' => 'Nom'
             ])
 
             ->add('pseudo', TextType::class,[
-                'attr' => [ 'class' => 'signin-form'],
+                'attr' => [
+                    'class' => 'signin-form'
+                ],
+                'required' => false,
+                'trim' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez renseigner un pseudo !',
+                    ]),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Le pseudo doit contenir au moins {{ limit }} lettres'
+                    ]),
+                ],
                 'label' => 'Pseudo'
             ])
 
             ->add('email', EmailType::class, [
-                'attr' => [ 'class' => 'signin-form'],
-                'label' => 'Email'
+                'attr' => [
+                    'class' => 'signin-form'
+                ],
+                'label' => 'Email',
+                'required' => false,
+                'trim' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez renseigner une adresse email !',
+                    ]),
+                ]
             ])
 
             ->add('plainPassword', RepeatedType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'Mot de Passe'],
-                'second_options' => ['label' => 'Confirmation'],
+                'first_options' => ['label' => 'Saisissez votre mot de passe'],
+                'second_options' => ['label' => 'Confirmez votre mot de passe'],
                 'invalid_message' => 'Veuillez réessayer !',
-                'required' => true,
+                'required' => false,
                 'mapped' => false,
+                'trim' => true,
                 'attr' => [
                     'autocomplete' => 'new-password',
                     'class' => 'signin-form',
@@ -60,8 +106,8 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Veuillez renseigner un mot de passe',
                     ]),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Mot de passe trop court ! {{ limit }}',
+                        'min' => 8,
+                        'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -71,7 +117,7 @@ class RegistrationFormType extends AbstractType
             ->add('roles', ChoiceType::class, [
                 'choices' => [
                     'Utilisateur' => 'ROLE_USER',
-                    'Editeur' => 'ROLE_EDITOR',
+                    'Éditeur' => 'ROLE_EDITOR',
                 ],
                 'expanded' => true,
                 'multiple' => true,
@@ -80,14 +126,14 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('agreeTerms', CheckboxType::class, [
+                'label' => false,
                 'mapped' => false,
+                'required' => true,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Veuillez accepter les termes !',
                     ]),
-
                 ],
-                'label' => 'Accepter les conditions d\'utilisations',
                 'attr' => [
                     'class' => 'checkbox-visible'
                 ]
@@ -100,5 +146,4 @@ class RegistrationFormType extends AbstractType
             'data_class' => User::class,
         ]);
     }
-
 }

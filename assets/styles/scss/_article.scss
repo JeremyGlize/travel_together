@@ -18,7 +18,7 @@
     .articles-card-details {
       position:relative;
       text-align:center;
-      p:nth-child(3){
+      p:nth-child(2){
         height: 60px;
         padding:10px 0;
         line-height:20px;
@@ -45,22 +45,24 @@
     margin: 20px;
     @include font(GG_S, 28);
   }
+  p {
+    @include font(GG_R, 16)
+  }
  }
 
 // ******** NEW ARTICLE ******** //
 
-.container-article-form {
-  h1 {
+.container-article-form h1 {
     text-align: center;
     padding: 20px;
     @include font(GG_R, 36);
-  }
 }
 
 .articles-container-new {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   .article-title-form {
     padding: 20px 5px;
     @include font(GG_R, 24);
@@ -81,10 +83,6 @@
   .fr-element {
     height: 500px;
   }
-}
-
-.visibility {
-  display: none;
 }
 
 //***** RESPONSIVE *****//

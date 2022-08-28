@@ -1,16 +1,19 @@
+.title {
+  text-align: center;
+  margin: 5% auto;
+  @include font(GG_S, 32);
+}
+
 .container-login-form {
-  margin-top: 10%;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5% auto;
+  width: 90%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   @include font(GG_R, 18);
-  h1 {
-    padding: 20px 0;
-    @include font(GG_R, 24);
+  .login-form {
+    width: 50%;
   }
 }
 
@@ -23,15 +26,22 @@
 
 .login-line {
   border-bottom: 1px solid;
+  width: 100%;
 }
 
 .login-logout {
   padding: 20px 0;
 }
 
-.login-button {
-  padding: 10px;
-  margin: 20px 0;
-  border: 2px solid;
-  cursor: pointer;
+.center-button-log-reg {
+  text-align: center;
+  margin-top: 20px;
+  .login-button {
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid;
+    cursor: pointer;
+  }
 }
+
+

@@ -29,9 +29,9 @@ class ArticleController extends AbstractController
             ['createdAt' => 'desc']);
 
         $articles = $paginator->paginate(
-            $articles, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            2 // Nombre de résultats par page
+            $articles,
+            $request->query->getInt('page', 1),
+            3
         );
 
         return $this->render('article/articles.html.twig', compact('articles', 'comments'));

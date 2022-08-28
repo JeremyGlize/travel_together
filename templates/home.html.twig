@@ -3,36 +3,19 @@
     <section class="carousel">
         <div id="slider">
             <figure>
-                <img src="https://picsum.photos/853/480?random=1" alt="">
-                <img src="https://picsum.photos/853/480?random=2" alt="">
-                <img src="https://picsum.photos/853/480?random=3" alt="">
-                <img src="https://picsum.photos/853/480?random=4" alt="">
-                <img src="https://picsum.photos/853/480?random=1" alt="">
+                <img src="{{ asset('build/images/image1.jpg') }}" alt="">
+                <img src="{{ asset('build/images/image2.jpg') }}" alt="">
+                <img src="{{ asset('build/images/image3.jpg') }}" alt="">
+                <img src="{{ asset('build/images/image5.jpg') }}" alt="">
+                <img src="{{ asset('build/images/image1.jpg') }}" alt="">
             </figure>
         </div>
     </section>
     <section class="last-article">
-        <h2>Dernier articles</h2>
+        <h2>Derniers articles</h2>
         <div class="articles-container-listing">
-            {% for article in articles|sort((a,b)=>b.createdAt > a.createdAt)|slice(0, 3) %}
-                <div class="articles-card-listing">
-                    <div class="articles-card-title">
-                        <h3>{{ article.title|raw }}</h3>
-                    </div>
-                    <div class="articles-card-details">
-{#                        <p>{{ article.content|striptags|slice(0, 180)|raw }}</p>#}
-{#                        {{ dump(article) }}#}
-{#                        <p>{{ article.content|raw }}</p>#}
-                        <p>{{ article.content|u.truncate(210, '...', false)|raw }}</p>
-                        <p class="com"><i class="fa-solid fa-message"></i> {{ article.comments|length }}</p>
-                        <span class="visibility">{{ article.createdAt|date('d-m-Y') }}</span>
-                        <div class="articles-card-button">
-                            <button class="read-more">
-                                <a href="{{ path('article_detail', {id: article.id}) }}">Lire plus</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            {% for article in articles | sort((a,b)=>b.createdAt > a.createdAt) | slice(0, 3) %}
+                {% include 'article/_articles-card.html.twig' %}
             {% endfor %}
         </div>
     </section>

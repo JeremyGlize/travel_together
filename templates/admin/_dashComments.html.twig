@@ -1,0 +1,31 @@
+<div class="title">
+    <h1>Gestionnaire commentaires</h1>
+</div>
+<div class="container-dash">
+    <table class="dash-table">
+        <thead>
+            <tr>
+                <th>Commentaires</th>
+                <th>Article</th>
+                <th>Auteur</th>
+                <th>Date de création</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.commentContent }}</td>
+                <td> {{ comment.article.title }}</td>
+                <td>{{ comment.pseudo }}</td>
+                <td>{{ comment.createdat|date('d-m-Y')}}</td>
+                <td class="">
+                    <a href="{{ path('comment_delete', {id: comment.id}) }}">
+                        <i class="fa fa-trash text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

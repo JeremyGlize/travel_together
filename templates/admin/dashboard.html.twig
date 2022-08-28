@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <section class="dashboard-users">
+        {% include 'admin/_dashUsers.html.twig' %}
+    </section>
+    <section class="dashboard-articles">
+        {% include 'admin/_dashArticles.html.twig' %}
+    </section>
+    <section class="dashboard-comments">
+        {% include 'admin/_dashComments.html.twig' %}
+    </section>
+{% endblock %}

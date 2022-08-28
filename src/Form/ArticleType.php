@@ -26,7 +26,8 @@ class ArticleType extends AbstractType
                 'label' => 'Titre'
             ])
             ->add('content', FroalaEditorType::class, [
-                'label' => ' '
+                'label' => false,
+                'required' => false,
             ])
             ->add('user', HiddenType::class)
             ->add('save', SubmitType::class, [

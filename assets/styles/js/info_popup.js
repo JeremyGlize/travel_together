@@ -1,14 +1,16 @@
-jQuery(document).ready(function() {
-    jQuery('.fa-solid').on('click', function() {
-        jQuery('#overlay').addClass('overlay-active');
-        jQuery(".pop-up").fadeIn("fast", function() {
-            jQuery('.pop-up').addClass('pop-up-active');
+(function($) {
+    $(document).ready(function() {
+        $('.fa-solid').on('click', function() {
+            $('#overlay').addClass('overlay-active');
+            $(".pop-up").fadeIn("fast", function() {
+                $('.pop-up').addClass('pop-up-active');
+            });
+        });
+        $('.btn-close,#overlay').on('click', function() {
+            $('#overlay').removeClass('overlay-active');
+            $(".pop-up").fadeOut("fast", function() {
+                $('.pop-up').removeClass('pop-up-active');
+            });
         });
     });
-    jQuery('.btn-close,#overlay').on('click', function() {
-        jQuery('#overlay').removeClass('overlay-active');
-        jQuery(".pop-up").fadeOut("fast", function() {
-            jQuery('.pop-up').removeClass('pop-up-active');
-        });
-    });
-});
+})(jQuery);
